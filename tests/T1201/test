@@ -1,0 +1,14 @@
+Atomic Test #1 - Examine local password policy - Windows
+Lists the local password policy to console on Windows.
+
+
+Attack Commands: Run with command_prompt!
+net accounts
+
+
+Atomic Test #2 - Examine domain password policy - Windows
+Lists the domain password policy to console on Windows.
+
+
+Attack Commands: Run with command_prompt!
+net accounts /domain
