@@ -1,0 +1,25 @@
+Atomic Test #1 - Impair Windows Audit Log Policy
+
+Attack Commands: Run with command_prompt! Elevation Required (e.g. root or admin)
+
+auditpol /set /category:"Account Logon" /success:disable /failure:disable
+auditpol /set /category:"Logon/Logoff" /success:disable /failure:disable
+auditpol /set /category:"Detailed Tracking" /success:disable
+
+Cleanup Commands:
+
+auditpol /set /category:"Account Logon" /success:enable /failure:enable
+auditpol /set /category:"Detailed Tracking" /success:enable
+auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable
+
+Atomic Test #2 - Clear Windows Audit Policy Config
+
+Attack Commands: Run with command_prompt! Elevation Required (e.g. root or admin)
+auditpol /clear /y
+auditpol /remove /allusers
+
+Cleanup Commands:
+
+auditpol /set /category:"Account Logon" /success:enable /failure:enable
+auditpol /set /category:"Detailed Tracking" /success:enable
+auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable
