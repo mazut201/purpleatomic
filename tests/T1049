@@ -1,0 +1,30 @@
+Atomic Test #1 - System Network Connections Discovery
+
+Attack Commands: Run with command_prompt!
+netstat
+net use
+net sessions
+
+Atomic Test #2 - System Network Connections Discovery with PowerShell
+
+Attack Commands: Run with powershell!
+Get-NetTCPConnection
+
+Atomic Test #3 - System Discovery using SharpView
+
+Attack Commands: Run with powershell! Elevation Required (e.g. root or admin)
+  $syntaxList = #{syntax}
+  foreach ($syntax in $syntaxList) {
+  #{SharpView} $syntax -}
+
+Dependencies: Run with powershell!
+Description: Sharpview.exe must exist on disk at specified location (#{SharpView})
+
+Check Prereq Commands:
+  if (Test-Path #{SharpView}) {exit 0} else {exit 1}
+
+
+Get Prereq Commands:
+
+  New-Item -Type Directory (split-path #{SharpView}) -ErrorAction ignore | Out-Null
+  Invoke-WebRequest #{SharpView_url} -OutFile "#{SharpView}"
